@@ -1,0 +1,65 @@
+#include <iostream>
+using namespace std;
+
+int**criar_m(int linhas, int colunas){
+	int** matriz = new int*[linhas];
+	for(int i = 0; i < linhas; i++){
+	matriz[i]= new int[colunas];
+	for(int j =0; j<colunas; j++){
+		cout<<"Digite linha ["<<i + 1<<"] e colunas ["<<j+1<<"]: ";
+		cin>>matriz[i][j];
+		} 
+	}cout<<endl;
+	 return matriz;
+}
+
+void imprimir(int**matriz, int linhas, int colunas){
+	for(int i = 0; i < linhas; i++){
+	for(int j =0; j<colunas; j++){
+		cout<<matriz[i][j]<<" ";
+	}cout<<endl;
+}}
+
+int somar_m(int**matriz1,int**matriz2, int linhas, int colunas){
+	int soma;
+	for(int i = 0; i < linhas; i++){
+	for(int j =0; j<colunas; j++){
+		soma = matriz1[i][j]+ matriz2[i][j];
+		cout<<soma<<" ";
+	}cout<<endl;
+} return soma;
+}
+
+int sub_m(int**matriz1,int**matriz2, int linhas, int colunas){
+	int sub;
+	for(int i = 0; i < linhas; i++){
+	for(int j =0; j<colunas; j++){
+		sub = matriz1[i][j]- matriz2[i][j];
+		cout<<sub<<" ";
+	}cout<<endl;
+} return sub;
+}
+
+
+int main(){
+	int lin,col;
+	cout<<"Linhas: ";
+	cin>>lin;
+	cout<<"colunas: ";
+	cin>>col;
+	
+	int** mat1 = criar_m(lin,col);
+	int**mat2 = criar_m(lin,col);
+	cout<<"primeira matriz: "<<endl;
+	imprimir(mat1,lin,col);
+	cout<<"segunda matriz: "<<endl;
+	imprimir(mat2,lin,col);
+	cout<<"----------------"<<endl;
+	cout<<"A soma: "<<endl;
+	int soma = somar_m(mat1,mat2,lin,col);
+	cout<<"----------------"<<endl;
+	cout<<"A diferenca: "<< endl;
+	int sub = sub_m(mat1,mat2,lin,col);
+	
+	return 0;
+}
